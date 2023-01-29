@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="content"></div>
+
+    <script src="data.js"></script>
+    <script>
+        const content = document.querySelector('.content');
+        const dataEl = JSON.parse(dataInfo);
+        console.log(dataEl);
+        dataEl.forEach(e => {
+            const img = document.createElement('img')
+            const headerCont = document.createElement('h2')
+            const paragCont = document.createElement('p')
+            img.src = e.url
+            headerCont.textContent = e.head
+            paragCont.textContent = e.text
+            content.appendChild(img)
+            content.appendChild(headerCont)
+            content.appendChild(paragCont)
+        });
+        content.style.width = '95%';
+        content.style.overflow = 'hidden';
+        content.style.display = 'flex';
+        content.style.flexDirection = 'column';
+        content.style.alignItems = 'flex-start';
+        content.style.gap = '20px';
+    </script>
+</body>
+
+</html>
